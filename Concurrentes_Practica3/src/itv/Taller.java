@@ -4,8 +4,6 @@ package itv;
  * @author Javi Navarro
  */
 import java.util.concurrent.Semaphore;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Taller {
     public static final int MAX_CARRILES = 5;
@@ -13,24 +11,25 @@ public class Taller {
     public static final int MAX_OPERARIOS = MAX_CARRILES;
     
     public static Integer carrilesLibres;
-    public static boolean carrilesOperativos;
+    public static Semaphore carrilesOperativos;
     public static Semaphore hayCarriles;
     public static Semaphore mutex;
     public static Semaphore oficina;
     
+    public static boolean hayCliente = false;
     public Taller() {
         //variables
         carrilesLibres = new Integer(MAX_CARRILES);
-        carrilesOperativos = false;
         
         //semaforos
+        carrilesOperativos = new Semaphore(0, true); 
         mutex = new Semaphore(1, true);
         hayCarriles = new Semaphore(0, true);
-        oficina = new Semaphore(1, true);
+        oficina = new Semaphore(0, true);
         
         //arrays de operarios y clientes
         Operario[] operarios = new Operario[MAX_OPERARIOS];
-       
+        Cliente[] clientes = new Cliente[MAX_CLIENTES];
         for(int i=0;i<MAX_OPERARIOS;i++){
             if (i == 0){
                 operarios[i] = new Operario(i, true);
@@ -39,12 +38,16 @@ public class Taller {
             }
         }
         Admin a1 = new Admin();
+        for(int i=0;i<MAX_CLIENTES;i++){
+                clientes[i] = new Cliente(a1, operarios, i);
+        }
         
-        Cliente c1 = new Cliente(a1, operarios, 1);
-        Cliente c2 = new Cliente(a1, operarios, 2);
-        
+        for(int i=0;i<MAX_OPERARIOS;i++){
+            operarios[i].start();
+        }
+        for(int i=0;i<MAX_CLIENTES;i++){
+            clientes[i].start();
+        }
         a1.start();
-        c1.start();
-        c2.start();
     } 
 }
