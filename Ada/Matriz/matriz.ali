@@ -1,0 +1,72 @@
+V "GNAT Lib v2013"
+M P W=b
+P ZX
+
+RN
+RV NO_FLOATING_POINT
+RV NO_IO
+RV SPARK
+
+U matriz%b		matriz.adb		2d8b518b NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+D ada.ads		20130417131023 3ffc8e18
+D a-except.ads		20130417131019 10fcae55
+D a-finali.ads		20130417131020 52ecdc1b
+D a-flteio.ads		20130417131020 e18a47a0
+D a-inteio.ads		20130417131020 f64b89a4
+D a-ioexce.ads		20130417131020 8b9de6cd
+D a-stream.ads		20130417131021 2ca4ee37
+D a-tags.ads		20130417131022 6c0509d0
+D a-textio.ads		20130417131022 386df5d4
+D a-tiflio.ads		20130417131022 56fbda09
+D a-tiinio.ads		20130417131022 aa04e5d6
+D a-unccon.ads		20130417131022 f9eb8f06
+D interfac.ads		20130417131027 cb4a8015
+D i-cstrea.ads		20130417131026 8128536b
+D matriz.adb		20141004150115 02276a5b
+D system.ads		20130417131036 f2f2d889
+D s-crtl.ads		20130417131029 dfcfca61
+D s-exctab.ads		20130417131029 66e51330
+D s-ficobl.ads		20130417131029 55a71d43
+D s-finmas.ads		20130417131029 b95bb341
+D s-finroo.ads		20130417131029 4ff27390
+D s-parame.ads		20130417131032 b6e20cc0
+D s-pooglo.ads		20130417131032 542f33d0
+D s-soflin.ads		20130417131032 24c8153c
+D s-stache.ads		20130417131032 596fc1b4
+D s-stalib.ads		20130417131032 f78bcf95
+D s-stoele.ads		20130417131032 facd7d98
+D s-stoele.adb		20130417131032 afc5dc80
+D s-stopoo.ads		20130417131032 7b8fbeee
+D s-traent.ads		20130417131033 5221ee41
+D s-unstyp.ads		20130417131034 6ae15c76
+D s-wchcon.ads		20130417131034 bfeb2e3d
+X 1 ada.ads
+16K9*Ada 19e8 15|1r6 1r27 1r40 2r5 2r26 2r39
+X 4 a-flteio.ads
+20K13*Float_Text_IO[10|45] 15|1w44 2r43
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[11|45] 15|1w10 2r9
+X 9 a-textio.ads
+49K13*Text_IO 471e16 15|1w31 2r30
+73I12*Field{integer}
+166U14*New_Line 15|22s17
+X 10 a-tiflio.ads
+67U14*Put 15|21s17[4|20]
+70i7 Aft{9|73I12} 15|21r37[4|20]
+71i7 Exp{9|73I12} 15|21r27[4|20]
+X 15 matriz.adb
+4U11*Matriz 4b11 25l5 25t11
+7A14 Matrix(integer)<integer><integer> 9r13
+8A14 Vector(float)<integer> 10r13
+9a9 A{7A14} 13m9 16r30 16r45
+10a9 B{8A14} 14r23 17m17 19r23 21r21
+11f9 Num{float} 16m17 17r25
+14i13 i{integer} 16r35 16r50 17r19
+19i13 i{integer} 21r23
+
