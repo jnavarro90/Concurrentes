@@ -15,7 +15,6 @@ public class Datos extends Thread{
     public static Semaphore guia;
     public static Semaphore guiaEsperando;
     public static Semaphore encuesta;
-    public static Semaphore mutex;
     public static int visitantesSalaEspera = 0;
     public static int visitantesEdificio = 0;
     public static int visitantesGuia = 0;
@@ -30,6 +29,5 @@ public class Datos extends Thread{
         guia = new Semaphore(0, true);
         guiaEsperando = new Semaphore(0, esperaLlena);
         encuesta = new Semaphore(MAX_ENCUESTA, true);
-        mutex = new Semaphore(1, true);
     }
 }
