@@ -1,0 +1,195 @@
+V "GNAT Lib v2014"
+M P W=b
+A -gnatA
+P SS ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_LOOPS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_ALLOCATORS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV NO_IMPLEMENTATION_PRAGMAS
+RV SPARK_05
+RV MAX_SELECT_ALTERNATIVES=9
+RV MAX_TASK_ENTRIES=9
+RV MAX_TASKS=1+
+
+U main%b		main.adb		ab5129db NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system%s		system.ads		system.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20140406181354 3ffc8e18 ada%s
+D a-calend.ads		20140406181358 d86d6c8c ada.calendar%s
+D a-caldel.ads		20140406181354 9f20b83d ada.calendar.delays%s
+D a-except.ads		20140406181356 43d57f8c ada.exceptions%s
+D a-finali.ads		20140406181358 69f99942 ada.finalization%s
+D a-ioexce.ads		20140406181358 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20140406181358 bb51c45a ada.numerics%s
+D a-nudira.ads		20140406181356 2fef2912 ada.numerics.discrete_random%s
+D a-nudira.adb		20140406181358 e57ce22b ada.numerics.discrete_random%b
+D a-reatim.ads		20140406181358 63f07669 ada.real_time%s
+D a-stream.ads		20140406181354 1a984740 ada.streams%s
+D a-tags.ads		20140406181356 dc4d0634 ada.tags%s
+D a-textio.ads		20140406181358 386df5d4 ada.text_io%s
+D a-unccon.ads		20140406181358 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20140406181358 69adb1b9 interfaces%s
+D i-c.ads		20140406181358 5421119b interfaces.c%s
+D i-cstrin.ads		20140406181356 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20140406181356 febc86ed interfaces.c_streams%s
+D main.adb		20141210184848 bcd3f51d main%b
+D system.ads		20140406181358 5fc8ae56 system%s
+D s-atacco.ads		20140406181354 4c36d12f system.address_to_access_conversions%s
+D s-conca3.ads		20140406181354 0b705ca5 system.concat_3%s
+D s-crtl.ads		20140406181356 2c012597 system.crtl%s
+D s-exctab.ads		20140406181354 54135002 system.exception_table%s
+D s-ficobl.ads		20140406181354 078245e4 system.file_control_block%s
+D s-finmas.ads		20140406181356 814daec4 system.finalization_masters%s
+D s-finroo.ads		20140406181358 4ff27390 system.finalization_root%s
+D s-imgint.ads		20140406181358 02dbe0c2 system.img_int%s
+D s-imguns.ads		20140406181354 9ff43cf7 system.img_uns%s
+D s-multip.ads		20140406181358 38ac9f73 system.multiprocessors%s
+D s-osinte.ads		20140406181354 ecf1fbfd system.os_interface%s
+D s-parame.ads		20140406181358 06da98b2 system.parameters%s
+D s-pooglo.ads		20140406181356 542f33d0 system.pool_global%s
+D s-rannum.ads		20140406181354 5eb33f0a system.random_numbers%s
+D s-rannum.adb		20140406181354 34372cc7 system.random_numbers%b
+D s-ransee.ads		20140406181358 01a57b33 system.random_seed%s
+D s-secsta.ads		20140406181358 86a2856d system.secondary_stack%s
+D s-soflin.ads		20140406181358 aa763b52 system.soft_links%s
+D s-stache.ads		20140406181354 a37c21ec system.stack_checking%s
+D s-stausa.ads		20140406181354 017a0a05 system.stack_usage%s
+D s-stalib.ads		20140406181354 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140406181356 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20140406181354 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20140406181356 b16154c2 system.storage_pools%s
+D s-tasinf.ads		20140406181356 601f6b72 system.task_info%s
+D s-taspri.ads		20140406181356 196697f7 system.task_primitives%s
+D s-taprop.ads		20140406181354 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20140406181354 3f821f32 system.tasking%s
+D s-taprob.ads		20140406181354 502249e3 system.tasking.protected_objects%s
+D s-tpoben.ads		20140406181356 b641f948 system.tasking.protected_objects.entries%s
+D s-tasren.ads		20140406181358 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20140406181358 70812003 system.tasking.stages%s
+D s-traent.ads		20140406181354 b5116092 system.traceback_entries%s
+D s-unstyp.ads		20140406181356 510692af system.unsigned_types%s
+D s-valuns.ads		20140406181358 10a8ed3b system.val_uns%s
+D s-wchcon.ads		20140406181358 1b7d22d2 system.wch_con%s
+D s-win32.ads		20140406181354 b7f96285 system.win32%s
+X 1 ada.ads
+16K9*Ada 19e8 19|1r6 2r6 3r5 10r34 20r34
+X 7 a-numeri.ads
+16K13*Numerics 32e17 19|2r10 10r38 20r38
+X 8 a-nudira.ads
+44k22*Discrete_Random 73e33 19|2w19 10r47 20r47
+48R9 Generator<34|58R9> 19|11r23[10] 21r23[20]
+50V13 Random{integer} 19|14s26[10] 24s26[20]
+53U14 Reset<34|95p14> 19|13s19[10] 23s19[20]
+X 9 a-nudira.adb
+51V16 Random[34|78]{integer} 35|390b13[19|20]
+X 13 a-textio.ads
+49K13*Text_IO 471e16 19|1w10 3r9
+263U14*Put_Line 19|69s10 169s13 172s16 182s13 187s19 188s19 191s22 200s19
+. 203s19 206s22 215s19 218s19 220s19
+X 15 interfac.ads
+63M9*Unsigned_32
+66M9*Unsigned_64
+X 19 main.adb
+5U11*Main 5b11 237l5 237t9
+6E9 Espec 6e48 150r12
+6n19 NINGUNA{6E9} 150r19
+6n28 EMPRESA{6E9} 158r16 183r22
+6n37 PARTICULAR{6E9} 160r16 167r17
+8V14 Generate_Number{integer} 8b14 8>31 15l8 15t23
+8i31 MaxValue{integer} 9r49
+9I15 Random_Type{integer} 10r64
+10K15 Random_Pack[8|44] 11r11 13r7 14r14
+11r7 G{8|48R9[10]} 13r26 14r34
+16V13 Generate_Number{integer} 16b13 16>30 17>30 26l8 26t23 32s14
+16i30 MinValue{integer} 19r44 32r30
+17i30 MaxValue{integer} 19r56 33r33
+19I15 Random_Type{integer} 20r64
+20K15 Random_Pack[8|44] 21r11 23r7 24r14
+21r7 G{8|48R9[20]} 23r26 24r34
+27V13 Generate_Boolean{boolean} 27b13 27>31 28>31 40l8 40t24 72s18 109s28
+. 116s28 155s12
+27i31 Min{integer} 32r42 72r35 109r45 116r45 155r29
+28i31 Max{integer} 33r45 73r35 110r40 117r40 156r27
+29i7 num{natural} 32m7 34r11
+30b7 bool{boolean} 35m10 37m10 39r14
+44t9 Jefe 64b14 84l8 84t12
+47t9 Trabajadores 75r16 77r16 85b14 145l8 145t20 168r13 170r13 175r25 181r13
+. 184r13 186r19 189r16 194r25 199r19 202r19 204r16 209r25 214r19
+48Y13 AtenderParticular 94b24 96l20 96t37 168s26
+49Y13 AtenderEmpresa 99b23 101l20 101t34 202s32
+50Y13 EspecialEmpresa 104b23 106l20 106t35 186s32
+51Y13 TerminarParticular 51<32 108b20 113l17 113t35 181s26 199s32
+51b32 problemaResuelto{boolean} 111m16 111r16 181r45 199r51
+52Y13 TerminarEmpresa 52<29 115b20 120l17 120t32 214s32
+52b29 problemaResuelto{boolean} 118m16 118r16 214r48
+53Y13 TrabajadorConJefe 53<31 130b20 132l17 132t34 170s26 175s38 189s29 194s38
+. 204s29 209s38
+53b31 ocupado{boolean} 131m16 131r16 170r44 175r56 189r47 194r56 204r47 209r56
+54Y13 TempresaVacio 54<27 122b20 128l17 128t30 184s26
+54b27 vacio{boolean} 124m19 124r19 126m19 126r19 184r40
+55Y13 AtenderJefe 75s29 135b23 137l20 137t31
+56Y13 TerminarConJefe 77s29 139b20 141l17 141t32
+59T14 Cliente 61l8 61e15 147b14 227l8 227t15 228r33 234r26
+60Y13 iniciar 60>21 164b14 166l11 166t18 235s19
+60i21 N{natural} 165r14 235r27
+65b7 salir{boolean} 70m10 78m16 81r23
+66b7 aux{boolean} 72m13 74r20
+86i7 especEmpresa{natural} 98r18 100m19 100r35 119m16 119r32 123r19
+87i7 especParticular{natural} 93r18 95m19 95r38 103r18 105m19 105r38 112m16
+. 112r35
+88b7 llamadaJefe{boolean} 131r25 134r22 136m19 140m16
+89b7 resuelto{boolean} 109m16 111r34 116m16 118r34
+108b40 problemaResuelto{boolean}
+115b37 problemaResuelto{boolean}
+122b35 vacio{boolean}
+130b39 ocupado{boolean}
+148i7 id{natural} 165m10 169r41 182r42 200r45 203r45 215r45
+149b7 salir{boolean} 181m65 199m71 214m68 217r19 225r20
+150e7 tipo{6E9} 158m10 160m10 167r10 183r15
+151b7 aux{boolean} 155m7 157r10 170m55 171r16 174m25 175m67 176r39 184m49
+. 185r16 189m58 190r22 193m25 194m67 195r39 204m58 205r22 208m25 209m67 210r39
+164i23 N{natural}
+228P9 ClienteAccess(59T14) 229r31
+229a4 clientes(228P9) 234m7 235r7
+233i8 i{integer} 234r16 235r16 235r32
+X 34 s-rannum.ads
+70V13*Random{15|63M9} 35|219i21
+71V13*Random{15|66M9} 35|219i21
+X 40 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+

@@ -1,0 +1,175 @@
+with Ada.Text_IO;
+with Ada.Numerics.Discrete_Random;
+use Ada.Text_IO;
+
+procedure Main is
+   type Espec is (NINGUNA, EMPRESA, PARTICULAR);
+
+    function Generate_Number (MaxValue : Integer) return Integer is
+      subtype Random_Type is Integer range 0 .. MaxValue;
+      package Random_Pack is new Ada.Numerics.Discrete_Random (Random_Type);
+      G : Random_Pack.Generator;
+   begin
+      Random_Pack.Reset (G);
+      return Random_Pack.Random (G);
+   end Generate_Number;
+   function Generate_Number (MinValue : Integer;
+                             MaxValue : Integer) return Integer
+   is
+      subtype Random_Type is Integer range MinValue .. MaxValue;
+      package Random_Pack is new Ada.Numerics.Discrete_Random (Random_Type);
+      G : Random_Pack.Generator;
+   begin
+      Random_Pack.Reset (G);
+      return Random_Pack.Random (G);
+
+   end Generate_Number;
+   function Generate_Boolean (Min : Integer;
+                              Max : Integer) return Boolean is
+      num:Natural;
+      bool:Boolean;
+   begin
+      num := Generate_Number(MinValue => Min,
+                                MaxValue => Max);
+      if (num mod 2) = 0 then
+         bool:=True;
+      else
+         bool:=False;
+      end if;
+      return bool;
+   end Generate_Boolean;
+
+   bool:Boolean;
+   ------------------Fin funciones RANDOM----------------
+   
+   task Trabajadores is
+      entry AtenderParticular;
+      entry AtenderEmpresa;
+      entry EspecialEmpresa;
+      entry TerminarParticular(problemaResuelto: out Boolean);
+      entry TerminarEmpresa(problemaResuelto: out Boolean);
+      entry TrabajadorConJefe(ocupado: out Boolean);
+      entry TempresaVacio(vacio: out Boolean);
+   end Trabajadores;
+   
+   task type Cliente is 
+      entry iniciar(N:Natural);
+      entry acabaJefe;
+   end Cliente; 
+   
+   task body Trabajadores is
+      especEmpresa:Natural:=5;
+      especParticular:Natural:=7;
+      llamadaJefe:Boolean:=False;
+      resuelto:Boolean;
+   begin
+      loop
+         select
+            when especParticular > 0 =>
+               accept  AtenderParticular  do
+                  especParticular := especParticular - 1;
+               end AtenderParticular;
+         or
+            when especEmpresa > 0 =>              
+               accept AtenderParticular  do
+                  especEmpresa := especEmpresa - 1;
+               end AtenderParticular;
+         or
+            when especParticular > 0 =>
+               accept EspecialEmpresa  do
+                  especParticular := especParticular - 1;
+               end EspecialEmpresa;
+         or
+            accept TerminarParticular (problemaResuelto : out Boolean) do
+               resuelto := Generate_Boolean(Min => 0,
+                                       Max => 10);
+               problemaResuelto:=resuelto;
+            end TerminarParticular;
+         or
+            accept EspecialEmpresa  do
+               resuelto := Generate_Boolean(Min => 0,
+                                       Max => 10);
+               problemaResuelto:=resuelto;
+            end EspecialEmpresa;
+         or
+            accept TempresaVacio (vacio : out Boolean) do
+               if especEmpresa > 0 then 
+                  vacio:=False;
+               else
+                  vacio:=True;
+               end if;
+            end TEmpresaVacio;
+         or
+            accept TrabajadorConJefe (ocupado : out Boolean) do
+               ocupado:=llamadaJefe;
+            end TrabajadorConJefe;
+         end select;
+         
+      end loop;
+   end Trabajadores;
+   
+   task body Cliente is
+      id:Natural;
+      salir:Boolean;
+      tipo:Espec:=NINGUNA;
+      aux:Boolean;
+   begin
+      
+      --Se genera antes el tipo de cliente por si tiene que repetir que sea con el mismo tipo
+      aux:=Generate_Boolean(Min => 1,
+                          Max => 50);
+      if aux then
+         tipo:=EMPRESA;
+      else
+         tipo:=PARTICULAR;
+      end if;
+          
+      loop
+      accept iniciar (N : in Natural) do
+         id:=N;
+      end iniciar;
+      if tipo = PARTICULAR then
+         Trabajadores.AtenderParticular;
+         Trabajadores.TrabajadorConJefe(ocupado => aux);
+         if aux then
+            accept acabaJefe;
+         end if;
+         delay 5.0;
+         --Si no ha resuelto el problema 
+         Trabajadores.TerminarParticular(problemaResuelto => salir);
+      else if tipo = EMPRESA then
+            Trabajadores.TempresaVacio(vacio => aux);
+            if aux then
+               Trabajadores.EspecialEmpresa;
+               Trabajadores.TrabajadorConJefe(ocupado => aux);
+               if aux then
+                  accept acabaJefe;
+               end if;
+               delay 6.0;
+               Trabajadores.TerminarParticular(problemaResuelto => salir);
+            else
+               Trabajadores.AtenderEmpresa;
+               Trabajadores.TrabajadorConJefe(ocupado => aux);
+               if aux then
+                  accept acabaJefe;
+               end if;
+               delay 5.0;
+               Trabajadores.TerminarEmpresa(problemaResuelto => salir);
+            end if;     
+         end if;
+      end if;
+         exit when salir;
+      end loop;
+   end Cliente;
+   
+   
+   
+begin
+   bool:=Generate_Boolean(Min => 1,
+                          Max => 50);
+   if bool then
+      Put("true");
+   else
+      Put("false");
+   end if;
+end Main;
