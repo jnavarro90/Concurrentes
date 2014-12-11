@@ -6,22 +6,19 @@
 
 package museo;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author javi
  */
 public class Museo {
+    public static Datos datos = new Datos();
+    public static Guia guia = new Guia();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Datos datos = new Datos();
-        
-        ArrayList listaVisitantes = new ArrayList();
-        int n = 0;
-      
+        datos.start();
+        guia.start();
         while(true){
             Visitante v = new Visitante();
             v.start();

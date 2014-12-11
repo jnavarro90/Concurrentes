@@ -31,7 +31,7 @@ public class Guia extends Thread{
             Datos.guia.release();
         }
     }
-    @Override
+    
     public void run() {
         while(true){
             try {
@@ -40,7 +40,7 @@ public class Guia extends Thread{
                 Logger.getLogger(Guia.class.getName()).log(Level.SEVERE, null, ex);
             }
             System.out.println("El guia esta visitando la sala C con los "+Datos.MAX_GUIA+" visitantes.");
-            Esperar(100, 100);
+            Esperar(1000, 1000);
             
             avisarVisitantes();
         }
