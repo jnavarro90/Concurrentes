@@ -1,4 +1,4 @@
-package socket;
+package sockets;
 
 /**
  *
@@ -10,13 +10,16 @@ public class Sockets {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Servidor serv = new Servidor();
-        
-        serv.start();
-        while(true){
-            Cliente client = new Cliente();
-            client.start();
-        }
+        Listin server = new Listin(9000);
+    new Thread(server).start();
+
+    try {
+        Thread.sleep(5);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+    System.out.println("Stopping Server");
+    server.stop();
     }
     
 }
