@@ -11,32 +11,63 @@ import java.io.*;
 public class Cliente extends Thread{
 
 final String HOST = "localhost";
-final int PUERTO=1088;
+final String OK = "OK";
+final String ERROR = "ERROR";
+final String ALTA = "ALTA";
+final String CONSULTA = "CONSULTA";
 
+int serverPort = 8080; //numero de puerto por defecto
+String operacion;
+String nombre;
+String telefono;
+String mServidor;
+
+PrintWriter salida;	 
+BufferedReader entrada;
 Socket sc;
-DataOutputStream mensaje;
-DataInputStream entrada;
 
 //Cliente
-
-public void run(){ /*ejecuta este metodo para correr el cliente */
+    public Cliente(int port, String n, String t){
+        this.serverPort = port;
+        this.operacion = ALTA;
+        this.nombre = n;
+        this.telefono = t; 
+    }
+    public Cliente(int port, String n){
+        this.serverPort = port;
+        this.operacion = CONSULTA;
+        this.nombre = n;
+    }
+    
+    
+public void run(){
 
         try{
 
-            sc = new Socket( HOST , PUERTO ); /*conectar a un servidor en localhost con puerto 5000*/
+            sc = new Socket( HOST , serverPort ); //conectar a un servidor en localhost con puerto indicado
 
-            //creamos el flujo de datos por el que se enviara un mensaje
-            mensaje = new DataOutputStream(sc.getOutputStream());
+            entrada = new BufferedReader(new InputStreamReader(sc.getInputStream()));
+            salida = new PrintWriter(sc.getOutputStream(), true);
 
             //enviamos el mensaje
-            mensaje.writeUTF("hola que tal!!");
+            if(operacion.equals(CONSULTA)){
+                salida.println(operacion);
+                salida.println(nombre);
+               
+            }else if(operacion.equals(ALTA)){
+                salida.println(operacion);
+                salida.println(nombre);
+                salida.println(telefono);
+            }else{
+                System.out.println("Se ha indicado mal la operacion ha realizar.");
+            }
 
             //cerramos la conexión
             sc.close();
 
         }catch(Exception e ){
 
-            System.out.println("Error: "+e.getMessage());
+            System.out.println("Error en el cliente: "+e.getMessage());
 
         }
 
